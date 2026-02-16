@@ -150,6 +150,12 @@ transform:translateY(-15px) scale(1.05);
 box-shadow:0 0 60px red;
 }
 
+.card-link{
+text-decoration:none;
+color:inherit;
+display:block;
+}
+
 footer{
 text-align:center;
 padding:30px;
@@ -176,32 +182,40 @@ color:#777;
 <h2>ATEEF STORE DIGITAL EMPIRE</h2>
 <div class="type" id="typewriter"></div>
 <div class="clock" id="clock"></div>
-<a href="https://superprofile.bio/ateefstore" class="btn">Enter</a>
+<a href="https://ateefstore.blogspot.com" target="_blank" class="btn">Official Website</a>
 </section>
 
 <section class="section" id="systems">
 <h2 style="color:red;margin-bottom:60px">Ateef Systems</h2>
 <div class="cards">
+
+<a href="https://ateefstore.github.io/ASGrowth/" target="_blank" class="card-link">
 <div class="card">
 <h3 style="color:red">ASGrowth</h3>
 <p>Advanced scalable digital growth architecture.</p>
-  <a href="https://ateefstore.github.io/ASGrowth/" class="btn">Enter</a>
 </div>
+</a>
+
+<a href="https://ateefkhan26.github.io/Tools-/" target="_blank" class="card-link">
 <div class="card">
 <h3 style="color:red">Premium Tools</h3>
-  <p>High-performance intelligent utilities.</p>
-  <a href="https://ateefstore.github.io/ASGrowth/" class="btn">Enter</a>
+<p>High-performance intelligent utilities.</p>
 </div>
+</a>
+
+<a href="https://znole.com/freelancer/ateef-khan/" target="_blank" class="card-link">
 <div class="card">
-<h3 style="color:red">AI Systems</h3>
-<p>Autonomous automation ecosystems.</p>
+<h3 style="color:red">Work With Me</h3>
+<p>Professional freelance services & collaborations.</p>
 </div>
+</a>
+
 </div>
 </section>
 
 <section class="section" id="connect">
 <h2 style="color:red;margin-bottom:40px">Connect</h2>
-<a href="https://github.com/ateefstore" class="btn">GitHub</a>
+<a href="https://github.com/ateefstore" target="_blank" class="btn">GitHub</a>
 </section>
 
 <footer>
@@ -209,19 +223,16 @@ color:#777;
 </footer>
 
 <script>
-/* Cursor */
 const cursor=document.querySelector(".cursor");
 document.addEventListener("mousemove",e=>{
 cursor.style.left=e.pageX+"px";
 cursor.style.top=e.pageY+"px";
 });
 
-/* Smooth Scroll */
 function scrollTo(id){
 document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-/* Matrix */
 const canvas=document.getElementById("matrix");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
@@ -231,6 +242,7 @@ const fontSize=14;
 const columns=canvas.width/fontSize;
 const drops=[];
 for(let x=0;x<columns;x++)drops[x]=1;
+
 function draw(){
 ctx.fillStyle="rgba(0,0,0,0.05)";
 ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -245,7 +257,6 @@ drops[i]++;
 }
 setInterval(draw,33);
 
-/* Typewriter */
 const text="Initializing ROOT AI Systems...";
 let i=0;
 function type(){
@@ -257,7 +268,6 @@ setTimeout(type,50);
 }
 type();
 
-/* Clock */
 function updateClock(){
 const now=new Date();
 document.getElementById("clock").innerHTML=
