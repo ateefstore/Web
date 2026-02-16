@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATEEF STORE | OMEGA MODE</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{
+background:#000;
+color:#fff;
+overflow-x:hidden;
+cursor:none;
+}
+
+/* ===== Animated 3D Gradient Background ===== */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:radial-gradient(circle at 30% 30%,#ff0000 0%,#000 40%),
+radial-gradient(circle at 70% 70%,#aa0000 0%,#000 40%);
+animation:bgMove 15s infinite alternate ease-in-out;
+z-index:-3;
+}
+@keyframes bgMove{
+0%{transform:translate(-10%,-10%) scale(1)}
+100%{transform:translate(-20%,-20%) scale(1.2)}
+}
+
+/* ===== Cursor Aura ===== */
+.cursor{
+position:fixed;
+width:25px;height:25px;
+border-radius:50%;
+background:red;
+pointer-events:none;
+mix-blend-mode:difference;
+z-index:9999;
+transition:.1s;
+}
+
+/* ===== Matrix Rain ===== */
+canvas{
+position:fixed;
+top:0;left:0;
+z-index:-2;
+}
+
+/* ===== Navbar ===== */
+nav{
+position:fixed;
+width:100%;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,0,0,.4);
+z-index:1000;
+}
+nav h1{
+color:red;
+font-weight:800;
+animation:spinLogo 10s linear infinite;
+}
+@keyframes spinLogo{
+0%{transform:rotateY(0)}
+100%{transform:rotateY(360deg)}
+}
+nav ul{display:flex;gap:30px;list-style:none}
+nav ul li{
+cursor:pointer;
+transition:.3s;
+}
+nav ul li:hover{
+color:red;
+text-shadow:0 0 20px red;
+}
+
+/* ===== Hero ===== */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+.hero h2{
+font-size:70px;
+background:linear-gradient(to right,red,#fff);
+-webkit-background-clip:text;
+color:transparent;
+}
+.type{
+margin-top:20px;
+color:#aaa;
+font-size:18px;
+}
+
+/* ===== Clock ===== */
+.clock{
+margin-top:20px;
+font-size:18px;
+color:red;
+}
+
+/* ===== Button ===== */
+.btn{
+margin-top:40px;
+padding:15px 45px;
+border-radius:50px;
+border:2px solid red;
+color:#fff;
+text-decoration:none;
+transition:.4s;
+}
+.btn:hover{
+background:red;
+box-shadow:0 0 40px red;
+transform:scale(1.1);
+}
+
+/* ===== Glass Cards ===== */
+.section{
+padding:120px 20px;
+text-align:center;
+}
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+max-width:1200px;
+margin:auto;
+}
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(25px);
+border-radius:25px;
+padding:50px;
+border:1px solid rgba(255,0,0,.4);
+transition:.4s;
+}
+.card:hover{
+transform:translateY(-15px) scale(1.05);
+box-shadow:0 0 60px red;
+}
+
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid rgba(255,0,0,.4);
+color:#777;
+}
+</style>
+</head>
+<body>
+
+<div class="cursor"></div>
+<canvas id="matrix"></canvas>
+
+<nav>
+<h1>ATEEF</h1>
+<ul>
+<li onclick="scrollTo('home')">Home</li>
+<li onclick="scrollTo('systems')">Systems</li>
+<li onclick="scrollTo('connect')">Connect</li>
+</ul>
+</nav>
+
+<section class="hero" id="home">
+<h2>ATEEF STORE DIGITAL EMPIRE</h2>
+<div class="type" id="typewriter"></div>
+<div class="clock" id="clock"></div>
+<a href="https://ateefstore.blogspot.com" class="btn">Enter</a>
+</section>
+
+<section class="section" id="systems">
+<h2 style="color:red;margin-bottom:60px">Omega Systems</h2>
+<div class="cards">
+<div class="card">
+<h3 style="color:red">ASGrowth</h3>
+<p>Advanced scalable digital growth architecture.</p>
+</div>
+<div class="card">
+<h3 style="color:red">Premium Tools</h3>
+<p>High-performance intelligent utilities.</p>
+</div>
+<div class="card">
+<h3 style="color:red">AI Systems</h3>
+<p>Autonomous automation ecosystems.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="connect">
+<h2 style="color:red;margin-bottom:40px">Connect</h2>
+<a href="https://github.com/ateefstore" class="btn">GitHub</a>
+</section>
+
+<footer>
+© 2026 ATEEF STORE — ROOT AI MODE ACTIVATED
+</footer>
+
+<script>
+/* Cursor */
+const cursor=document.querySelector(".cursor");
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.pageX+"px";
+cursor.style.top=e.pageY+"px";
+});
+
+/* Smooth Scroll */
+function scrollTo(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* Matrix */
+const canvas=document.getElementById("matrix");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+const letters="OMEGAATEEF10101";
+const fontSize=14;
+const columns=canvas.width/fontSize;
+const drops=[];
+for(let x=0;x<columns;x++)drops[x]=1;
+function draw(){
+ctx.fillStyle="rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="red";
+ctx.font=fontSize+"px monospace";
+for(let i=0;i<drops.length;i++){
+const text=letters[Math.floor(Math.random()*letters.length)];
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0;
+drops[i]++;
+}
+}
+setInterval(draw,33);
+
+/* Typewriter */
+const text="Initializing Omega AI Systems...";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typewriter").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,50);
+}
+}
+type();
+
+/* Clock */
+function updateClock(){
+const now=new Date();
+document.getElementById("clock").innerHTML=
+now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+</script>
+
+</body>
+</html>
